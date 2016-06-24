@@ -1,6 +1,5 @@
 FROM debian:jessie
 
-
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
 ENV NGINX_VERSION 1.10.1-1~jessie
@@ -11,7 +10,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 	&& apt-get update \
 	&& apt-get install -y dpkg-dev \
 	&& apt-get source nginx=${NGINX_VERSION} \
-	$$ apt-get build-dep -y nginx=${NGINX_VERSION} \
+	&& apt-get build-dep -y nginx=${NGINX_VERSION} \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 						ca-certificates \
 						nginx=${NGINX_VERSION} \
